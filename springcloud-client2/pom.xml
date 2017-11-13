@@ -9,11 +9,11 @@
   <url>http://maven.apache.org</url>
 
 <parent>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-starter-parent</artifactId>
-        <version>Brixton.SR4</version>
-        <relativePath/>
-    </parent>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-parent</artifactId>
+    <version>Brixton.SR4</version>
+    <relativePath/>
+</parent>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
