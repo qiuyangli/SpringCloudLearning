@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableZuulProxy
 public class SpringBoot {
 	
-  @RequestMapping("/home")
-   public String home() {
-         return "Hello World,I am zuul";
-     }
+    @RequestMapping("/home")
+    public String home() {
+        return "Hello World,I am zuul";
+    }
 
-     public static void main(String[] args) {
-         SpringApplication.run(SpringBoot.class, args);
-     }
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBoot.class, args);
+    }
 }
