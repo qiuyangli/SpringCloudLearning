@@ -4,17 +4,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
-import com.spring.SpringBoot.SchedualServiceHi;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
 public class TestController {
 
-	@Autowired
-    SchedualServiceHi schedualServiceHi;
+    @Autowired
+    private RestTemplate restTemplate;
 	
-	@RequestMapping(value = "/start",method = RequestMethod.GET)
-    public String sayHi(){
-		return schedualServiceHi.sayHiFromClient();
+    @HystrixCommand(fallbackMethod = "errorMethod")
+    @RequestMapping(value = "test", method = RequestMethod.GET)
+    public String test() {
+	String str = restTemplate.getForObject("http://client/home", String.class);
+	return str;
     }
+	
+    public String errorMethod(){
+	return "returned by error method";
+    }
+	
 }
