@@ -11,9 +11,12 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableEurekaServer
 public class SpringBoot {
 
+    @Value("${com.example.properties}")
+	private String name;
+    
     @RequestMapping("/home")
     public String home() {
-        return "Hello World!";
+        return name;
     }
 
     public static void main(String[] args) {
